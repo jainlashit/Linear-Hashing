@@ -149,24 +149,25 @@ void insert(ll value)
 }
 
 
-void read_file(char const *fileName)
+void read_file(char const *filePath)
 {
 	cout << "N = ";
 	cin >> N;
 	for (ll i = 0; i < N; ++i)
 		table.push_back(init_bucket());
-	ifstream infile(fileName);
+	ifstream infile(filePath);
 	ll number;
-	while(infile >> number)
+	while(infile >> number)	
 		insert(number);
 	// print();
 }
 
 int main()
 {
+	string filePath;
+	cout << "Enter file path : ";
+	cin >> filePath;
 	L = 0, s = 0, bsize = 2;
-	string fileName;
-	cout << "Enter file name : " << endl;
-	read_file(fileName);
+	read_file(filePath.c_str());
 	return 0;
 }
